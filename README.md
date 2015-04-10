@@ -42,11 +42,15 @@ enum {
 };
 ```
 
-* The P is short for position.
-* The N is short for normal.
+## Legend
+
+* The P is short for position
+* The N is short for normal
 * The C is short for coordinate (as in texture coordinate.)
-* The T is short for tangent.
-* The B is short for bitangent.
+* The T is short for tangent
+* The B is short for bitangent
+
+## Storage of data
 
 * P is 3-component float vector.
 * N is 3-component float vector.
