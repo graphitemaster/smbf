@@ -18,7 +18,7 @@ The data provided by SMBF is already in interleaved vertex format because any
 other format is wrong.
 
 The format is so straight forward you don't need any complex API to use, since
-rolling a loader for it take only a couple of lines. We provide a structure of
+rolling a loader for it takes only a couple of lines. We provide a structure of
 vertex definitions for you, but you don't have to use them.
 
 # Vertex formats
