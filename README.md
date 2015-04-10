@@ -21,6 +21,12 @@ The format is so straight forward you don't need any complex API to use, since
 rolling a loader for it takes only a couple of lines. We provide a structure of
 vertex definitions for you, but you don't have to use them.
 
+You may be questioning why something so obvious needs to exist at all when it
+should already exist. The reality is lots of people roll their own custom formats
+specifically like this but never make them publicly available for others to use
+because they're considered too trivial. This constant proliferation is
+ridiculous, lets at least have a format for others to use too guys.
+
 # Vertex formats
 
 The following formats exist:
