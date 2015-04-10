@@ -58,6 +58,16 @@ enum {
 * T is 3-component float vector.
 * B is 1-component float storing sign of `W`
 
+The reason we only store sign for bitangents is because the cost of bandwidth
+far exceeds the cost of a single cross produt. So just reconstruct it like
+so.
+
+```
+    normal0 = (gWorld * vec4(normal, 0.0f)).xyz;
+    tangent0 = (gWorld * vec4(tangent, 0.0f)).xyz;
+    bitangent0 = w * cross(normal0, tangent0);
+```
+
 # File format
 
 The file format contains the following header
