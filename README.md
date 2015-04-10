@@ -42,18 +42,17 @@ enum {
 };
 ```
 
-The P is short for position.
-The N is short for normal.
-The C is short for coordinate (as in texture coordinate.)
-The T is short for tangent.
-The B is short for bitangent.
+* The P is short for position.
+* The N is short for normal.
+* The C is short for coordinate (as in texture coordinate.)
+* The T is short for tangent.
+* The B is short for bitangent.
 
-P is 3-component float vector.
-N is 3-component float vector.
-C is 2-component float vector.
-T is 3-component float vector.
-B is 1-component float storing sign of `W`, as reconstruction of bitangents can be
-done in vertex shaders (or CPU side) with little effort.
+* P is 3-component float vector.
+* N is 3-component float vector.
+* C is 2-component float vector.
+* T is 3-component float vector.
+* B is 1-component float storing sign of `W`
 
 # File format
 
