@@ -93,6 +93,36 @@ After the vertices there is `indices` indices of type `uint32_t`.
 
 Everything is written as Little Endian.
 
+# Bounding Boxes
+SMBF does not concern itself with storing information that is trivial to calculate
+at runtime and often is faster than the wasted storage space. Since SMBF is for
+static models only it's trivial to construct a bounding box; here's an example:
+```
+// calculate the amount of floats for the format type
+size_t size = 0;
+if (type == SMBF_FORMAT_P)     size = sizeof(struct smbfP)     / sizeof(float);
+if (type == SMBF_FORMAT_PN)    size = sizeof(struct smbfPN)    / sizeof(float);
+if (type == SMBF_FORMAT_PNC)   size = sizeof(struct smbfPNC)   / sizeof(float);
+if (type == SMBF_FORMAT_PNCT)  size = sizeof(struct smbfPNCT)  / sizeof(float);
+if (type == SMBF_FORMAT_PNCTB) size = sizeof(struct smbfPNCTB) / sizeof(float);
+
+struct header* h = stream; // header
+float *v = (float *)h + 1; // vertex data begins after the header
+
+vec3 min(v[0], v[1], v[2]);
+vec3 max(v[0], v[1], v[2]);
+for (uint32_t i = 0; i < h->count; i++)
+{
+    for (size_t j = 0; j < 3; j++)
+    {
+        if (v[i][j] < min[j]) min[j] = v[i][j];
+        if (v[i][j] > max[j]) max[j] = v[i][j];
+    }
+    // move forward in the vertex stream
+    v += size;
+}
+```
+
 # Toolkit
 
 Included is a toolkit for converting OBJ models to SMBF models. To use the
